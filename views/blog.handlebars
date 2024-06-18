@@ -1,7 +1,9 @@
 <div class="row">
+    {{#each blogs as |blog| }}
     <div class="col-lg-8 col-md-10 mx-auto">
-        <h2 class="post-title">{{title}}</h2>
-        <p class="post-meta">Posted by <a href="#">{{author}}</a> on {{date}}</p>
-        <p class="post-content">{{{content}}}</p>
+        <h2 class="post-title">{{blog.title}}</h2>
+        <p class="post-meta">Posted by <a href="#">{{blog.author}}</a> on {{ format_date blog.date}}</p>
+        <p class="post-content">{{{blog.content}}}</p>
     </div>
+    {{/each}}
 </div>

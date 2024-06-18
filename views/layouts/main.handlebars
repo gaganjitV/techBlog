@@ -7,64 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
-        .header, .footer {
-            font-weight: 700;
-        }
-        .post-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        .post-meta {
-            font-size: 1rem;
-            color: #6c757d;
-        }
-        .post-content {
-            font-size: 1.125rem;
-            line-height: 1.6;
-        }
-        .footer .social-icons {
-            margin: 1rem 0;
-        }
-        .footer .social-icons a {
-            color: white;
-            margin: 0 0.5rem;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-        .footer .social-icons a:hover {
-            color: #17a2b8;
-        }
-        .navbar {
-            margin-bottom: 0;
-        }
-        .navbar-brand {
-            font-weight: 700;
-        }
-        .navbar-nav .nav-link {
-            font-weight: 700;
-            transition: color 0.3s ease;
-        }
-        .navbar-nav .nav-link:hover {
-            color: #17a2b8;
-        }
-        .header {
-            background: url('/images/headerPic.jpg') no-repeat center center;
-            background-size: cover;
-            color: white;
-            padding: 100px 0;
-        }
-        .header h1 {
-            font-size: 3rem;
-        }
-        .footer {
-            background: #343a40;
-        }
-    </style>
+   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
@@ -85,6 +28,24 @@
                     </li>
                 </ul>
             </div>
+                    <div>
+            <!-- If the customer is logged in, show a logout button -->
+            {{#if logged_in}}
+            <button class="mx-2 fs-5 nav-link" id="logout">
+              <svg class="mb-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+              </svg>
+              Logout</button>
+            {{else}}
+            <!-- Otherwise, show a link to login -->
+            <a class="mx-2 fs-5 nav-link" href="/login">
+              <svg class="mb-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+              </svg>
+              Login</a>
+            {{/if}}
+          </a>
+        </div>
         </div>
     </nav>
 
@@ -117,5 +78,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 </html>
